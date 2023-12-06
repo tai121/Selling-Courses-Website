@@ -1,0 +1,308 @@
+### login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "email" : "emcdddil@email.com",
+    "password": "password"
+}
+
+### signup
+POST http://localhost:3000/api/auth/signup
+Content-Type: application/json
+
+{
+    "profile" : {
+        "name" : "tadd3"
+    },
+    "username": "tdidcddcddd",
+    "email" : "emcdddil@email.com",
+    "password": "password"
+}
+
+
+### change email
+POST http://localhost:3000/api/auth/emailchange
+Content-Type: application/json
+
+{
+    "email" : "email@email.com",
+    "new_email" : "email@email.com",
+    "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6IlVTRVIiLCJ1c2VybmFtZSI6InRkaSIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtYWlsQGVtYWlsLmNvbSIsImlhdCI6MTY5OTI1MTY1NiwiZXhwIjoxNjk5MjUyNTU2fQ.qrGHz9BSXIs-XzsblHeA6xdM876JPHsNJq2qLZN09Xc"
+}
+
+
+### change password
+POST http://localhost:3000/api/auth/passwordchange
+Content-Type: application/json
+
+{
+    "email" : "emcdil@email.com",
+    "password" : "password",
+    "new_password" : "password",
+    "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6IlVTRVIiLCJ1c2VybmFtZSI6InRkaWRjZGNkZGQiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWNkaWxAZW1haWwuY29tIiwiaWF0IjoxNjk5MjUyODkxLCJleHAiOjE2OTkyNTM3OTF9.agJWwoNV7RF33TFC1zWr14pSmcLZfTR0oHT83CJ31TM"
+}
+
+
+###change profile
+POST http://localhost:3000/api/auth/passwordchange
+Content-Type: application/json
+
+{
+    {
+    "email" : "emcdil@email.com",
+    "password" : "password",
+    "profile" : "password",
+    "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6IlVTRVIiLCJ1c2VybmFtZSI6InRkaWRjZGNkZGQiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWNkaWxAZW1haWwuY29tIiwiaWF0IjoxNjk5MjUzMzY0LCJleHAiOjE2OTkyNTQyNjR9.t4hoPbC9fkOtdldpHuHGKTUrxXuH5sEoGUHH8xq5RuE"
+}
+}
+
+
+###create new course
+POST http://localhost:3000/api/course/newcourse
+Content-Type: application/json
+
+{
+    "email": "emil@email.com",
+    "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY0OTczNiwiZXhwIjoxNzAxNjUwNjM2fQ.GO-s5vp6y7y1W31I92Ff_hjybQOexbVldTVsXtgdHlI",
+    "title" : "tai",
+    "description": "tai",
+    "categories": ["tai1", "tai2"],
+    "tags": ["tai1", "tai2"],
+    "price": 1000
+}
+
+
+### get user by id
+POST http://localhost:3000/api/user/getuserbyid
+Content-Type: application/json
+
+{
+    "userId" : "65449f40a8352632cba06e8e"
+}
+
+### get user by id
+POST http://localhost:3000/api/user/disableuser
+Content-Type: application/json
+
+{
+    "userid" : "654888f24fc43f974bab2c32",
+    "email" : "emcdil@email.com",
+    "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDAxMDI0MTQsImV4cCI6MTcwMDEwMzMxNH0.pALvO-6dq_pNglQ3AOAJ5VRgPwz0PaHaRTsy3xb5tXI"
+}
+
+
+### change course info
+POST http://localhost:3000/api/course/changecourse
+Content-Type: application/json
+
+{
+    "userid" : "654888f24fc43f974bab2c32",
+    "email" : "emcdil@email.com",
+    "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDAxMDQxMTUsImV4cCI6MTcwMDEwNTAxNX0.fiPuE_uAFseRxYRkck6TX_sugUvIyi02fpEdkKJ-Lek",
+    "courseChanged" : {
+        "_id" : "65556719a54c5bcbf51104e7",
+        "title": "tai1"
+    }
+}
+
+
+### get course by id
+POST http://localhost:3000/api/course/getcoursebyid
+Content-Type: application/json
+
+{
+    "courseId" : "65558956a306537ee1dca512"
+}
+
+
+
+### delete course
+POST http://localhost:3000/api/course/deletecourse
+Content-Type: application/json
+
+{
+    "courseId" : "656d1d805813d78553b4593c",
+    "email": "emil@email.com",
+    "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY0OTczNiwiZXhwIjoxNzAxNjUwNjM2fQ.GO-s5vp6y7y1W31I92Ff_hjybQOexbVldTVsXtgdHlI"
+}
+
+
+
+### get all course by author
+POST http://localhost:3000/api/course/getallcoursebyauthor
+Content-Type: application/json
+
+{
+    "email": "emil@email.com",
+    "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY0OTczNiwiZXhwIjoxNzAxNjUwNjM2fQ.GO-s5vp6y7y1W31I92Ff_hjybQOexbVldTVsXtgdHlI",
+    "author_id": "654888f24fc43f974bab2c32"
+}
+
+
+### get all course by tag
+POST http://localhost:3000/api/course/getallcoursebytag
+Content-Type: application/json
+
+{
+    "tags": ["tai1"]
+}
+
+
+
+### get all course by category
+POST http://localhost:3000/api/course/getallcoursebycategory
+Content-Type: application/json
+
+{
+    "categories": ["tai1"]
+}
+
+
+
+### search course by keyword
+POST http://localhost:3000/api/course/searchcoursebykeyword
+Content-Type: application/json
+
+{
+    "keyword": "a"
+}
+
+
+
+### get full course by id
+POST http://localhost:3000/api/course/getfullcoursebyid
+Content-Type: application/json
+
+{
+   "email": "emil@email.com",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY1MDY5MCwiZXhwIjoxNzAxNjUxNTkwfQ.sagdNUEeGpQoMgP05O2hSjUJxnyl4nsJqYn1qBOLQoM",
+    "courseId" : "656d1d805813d78553b4593c"
+}
+
+
+
+### create a new chapter
+POST http://localhost:3000/api/chapter/newchapter
+Content-Type: application/json
+
+{
+    "email": "emil@email.com",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY1MjQxMiwiZXhwIjoxNzAxNjU4NDEyfQ.RUx_mixAR742U0jsQirsLiPgHzBtEFsDh-oS0SNoUGo",
+  "title": "chapter1",
+  "course_id":"656d1d805813d78553b4593c",
+  "order": 1
+}
+
+
+
+###change chapter
+POST http://localhost:3000/api/chapter/changechapter
+Content-Type: application/json
+
+{
+    "email": "emil@email.com",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY1MjQxMiwiZXhwIjoxNzAxNjU4NDEyfQ.RUx_mixAR742U0jsQirsLiPgHzBtEFsDh-oS0SNoUGo",
+  "chapter_id": "656d2953f50b344892f01c58",
+  "course_id": "656d1d805813d78553b4593c",
+  "change": {
+    "title": "chapter10"
+  }
+}
+
+
+
+### get chapter by course
+POST http://localhost:3000/api/chapter/getbycourse
+Content-Type: application/json
+
+{
+    "course_id" : "656d1d805813d78553b4593c"
+}
+
+
+
+### get full chapter by course
+POST http://localhost:3000/api/chapter/getbycourse
+Content-Type: application/json
+
+{
+     "email": "emil@email.com",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY1MjQxMiwiZXhwIjoxNzAxNjU4NDEyfQ.RUx_mixAR742U0jsQirsLiPgHzBtEFsDh-oS0SNoUGo",
+    "course_id" : "656d1d805813d78553b4593c"
+}
+
+
+
+### create lesson
+POST http://localhost:3000/api/lesson/newlesson
+Content-Type: application/json
+
+{
+    "email": "emil@email.com",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY1ODU5MiwiZXhwIjoxNzAxNzE4NTkyfQ.4cCJ-R4rPvRHKE215aeNklkU6KE1emXH4YWm_FK3fiI",
+    "course_id" : "656d1d805813d78553b4593c",
+    "chapter_id" : "656d2953f50b344892f01c58",
+    "title": "lesson1",
+    "order": 1,
+    "link": "lesson1"
+}
+
+
+
+### change lesson
+POST http://localhost:3000/api/lesson/changelesson
+Content-Type: application/json
+
+{
+     "email": "emil@email.com",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY1ODU5MiwiZXhwIjoxNzAxNzE4NTkyfQ.4cCJ-R4rPvRHKE215aeNklkU6KE1emXH4YWm_FK3fiI",
+    "course_id" : "656d1d805813d78553b4593c",
+    "lesson_id" : "656d405cd806afa12d13eb52",
+    "lesson_change": {
+        "title": "lesson3"
+    }
+
+}
+
+
+
+
+
+### get lesson by id
+POST http://localhost:3000/api/lesson/getlessonbyid
+Content-Type: application/json
+
+{
+     "email": "emil@email.com",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY1ODU5MiwiZXhwIjoxNzAxNzE4NTkyfQ.4cCJ-R4rPvRHKE215aeNklkU6KE1emXH4YWm_FK3fiI",
+    "course_id" : "656d1d805813d78553b4593c",
+    "lesson_id" : "656d405cd806afa12d13eb52"
+}
+
+
+
+### get full lesson by chapter id
+POST http://localhost:3000/api/lesson/getlessonbychapterid
+Content-Type: application/json
+
+{
+     "email": "emil@email.com",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY1ODU5MiwiZXhwIjoxNzAxNzE4NTkyfQ.4cCJ-R4rPvRHKE215aeNklkU6KE1emXH4YWm_FK3fiI",
+    "course_id" : "656d1d805813d78553b4593c",
+    "chapter" : "656d2953f50b344892f01c58"
+}
+
+
+
+
+###create payment
+POST http://localhost:3000/api/payment/create
+Content-Type: application/json
+
+{
+     "email": "emcdddil@email.com",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTZkMjA5NjU4NWUwNmU1MGZhNmM3ODgiLCJyb2xlcyI6IlVTRVIiLCJ1c2VybmFtZSI6InRkaWRjZGRjZGRkIiwicHJvZmlsZSI6InsgbmFtZTogJ3RhZGQzJyB9IiwiZW1haWwiOiJlbWNkZGRpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDE2NjA1NDksImV4cCI6MTcwMTcyMDU0OX0.1YW5wyOeUlVvJoI26MsyZuacEQ-dICG6H59wY7vXPYw",
+  "course_id": "656d1bbd12ffd4cc561e9a6b"
+}
+
