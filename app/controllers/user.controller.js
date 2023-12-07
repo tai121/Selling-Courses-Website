@@ -31,7 +31,8 @@ module.exports = {
                 throw createError(400,'something went wrong')
             return res.status(200).json({
                 "message": "oke",
-                "user" : user
+                "user" : user,
+                'newToken': res.locals.newToken
             })
         }catch (error) {
             console.log(error.message)
@@ -45,7 +46,8 @@ module.exports = {
                 throw createError(400,'something went wrong')
             return res.status(200).json({
                 "message": "oke",
-                "user" : user
+                "user" : user,
+                'newToken': res.locals.newToken
             })
         }catch (error) {
             console.log(error.message)
@@ -57,6 +59,22 @@ module.exports = {
             await User.updateOne({userid:req.body._id},{isActive: false})
             return res.status(200).json({
                 "message" : "oke",
+                'newToken': res.locals.newToken
+            })
+        }catch (error) {
+            console.log(error.message)
+            next(error)
+        }
+    },
+    getAllUser: async(req,res,next) =>{
+        try{
+            const users = await User.find()
+            if (!users)
+                throw createError(400,'something went wrong')
+            return res.status(200).json({
+                "message" : "oke",
+                'newToken': res.locals.newToken,
+                'users': users
             })
         }catch (error) {
             console.log(error.message)

@@ -61,4 +61,18 @@ module.exports = {
             next(error)
         }
     },
+    getChapterWithLesson : async(req,res,next)=>{
+        try{
+            const chapters = await Chapter.find({course_id: req.body.course_id,isDelete:false})
+            .populate('Lesson')
+            return res.status(200).json({
+                'message': 'oke',
+                chapters,
+                'newToken': res.locals.newToken
+            })
+        }catch (error) {
+            console.log(error.message)
+            next(error)
+        }
+    }
 }

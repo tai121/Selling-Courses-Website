@@ -13,6 +13,6 @@ router.post('/getbycourse',chapterController.getAllChapterByCourse)
 
 router.post('/deletebyid',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.instructorRole),courseMiddleware.checkUserHaveCourse,chapterController.deleteChapterById)
 
-
+router.post('/getChapterWithLesson',authMiddleware.checkToken(constant.timeExpire),courseMiddleware.checkPayCreateAdmin)
 
 module.exports = router

@@ -8,6 +8,7 @@ module.exports = {
     create: async (req,res,next) => {
         try{
             const complete = new Complete()
+            complete.user_id = user
             await complete.save()
             return res.status(200).json({
                'message': 'oke',
@@ -18,4 +19,9 @@ module.exports = {
             next(error)
         }
     },
+    // read: async(req, res, next) =>{
+    //     try{
+            
+    //     }
+    // }
 }

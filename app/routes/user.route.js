@@ -16,4 +16,6 @@ router.post('/getuserbyusername',userController.getUserByUsername)
 
 router.post('/disableuser',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.addminRole),userController.disableUser)
 
+router.post('/getalluser',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.addminRole), userController.getAllUser)
+
 module.exports = router

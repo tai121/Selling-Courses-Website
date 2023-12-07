@@ -3,7 +3,7 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-    "email" : "emcdddil@email.com",
+    "email" : "emcdil@email.com",
     "password": "password"
 }
 
@@ -44,6 +44,17 @@ Content-Type: application/json
 }
 
 
+
+### get all user
+POST http://localhost:3000/api/user/getalluser
+Content-Type: application/json
+
+{
+    "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDE5NTY4NDIsImV4cCI6MTcwMjAxNjg0Mn0.wWk7B3JcpmYgmqDxIwtSK-EGNHnw7x_ZmgDWZMRs4YE"
+}
+
+
+
 ###change profile
 POST http://localhost:3000/api/auth/passwordchange
 Content-Type: application/json
@@ -63,9 +74,9 @@ POST http://localhost:3000/api/course/newcourse
 Content-Type: application/json
 
 {
-    "email": "emil@email.com",
-    "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY0OTczNiwiZXhwIjoxNzAxNjUwNjM2fQ.GO-s5vp6y7y1W31I92Ff_hjybQOexbVldTVsXtgdHlI",
-    "title" : "tai",
+    "email": "emcdil@email.com",
+    "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDE5NTU0NDksImV4cCI6MTcwMjAxNTQ0OX0.M3jGaEx3-FbVZOUdD1_K2hLQ04uSti_1iz7yU7IOVOw",
+    "title" : "tasddsds",
     "description": "tai",
     "categories": ["tai1", "tai2"],
     "tags": ["tai1", "tai2"],
@@ -210,6 +221,15 @@ Content-Type: application/json
   }
 }
 
+
+###get all chapter with lesson
+POST http://localhost:3000/api/chapter/getChapterWithLesson
+Content-Type: application/json
+
+{
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDE5NTY4NDIsImV4cCI6MTcwMjAxNjg0Mn0.wWk7B3JcpmYgmqDxIwtSK-EGNHnw7x_ZmgDWZMRs4YE",
+  "course_id": "656d1d805813d78553b4593c"
+}
 
 
 ### get chapter by course

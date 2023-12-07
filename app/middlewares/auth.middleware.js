@@ -38,9 +38,6 @@ module.exports = {
                 jwt.verify(token, process.env.APP_SECRET, (err, decoded) => {
                     if (err) 
                         throw err
-                // console.log(req.headers['email'])
-                if(decoded.email!== req.body.email)
-                    throw createError(403,'are you a hacker?')
                 res.locals.userInfo = decoded
                 // console.log(decoded)
                 let tokenReGen = jwt.sign({
