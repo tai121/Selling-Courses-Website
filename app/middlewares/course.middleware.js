@@ -30,7 +30,8 @@ module.exports = {
             const courseId = req.body.course_id
             const course = await Course.findById(courseId)
             // console.log(course)
-            
+            if(!course)
+                throw createError(400,"course is not exist")
             const payment = await Payment.find({course_id: req.body.courseId,userId: res.locals.userInfo._id})
            
             let listRole = res.locals.userInfo.roles.split(',')

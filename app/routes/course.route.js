@@ -25,5 +25,10 @@ router.post('/searchcoursebykeyword', courseController.searchCourseByKeyword)
 
 router.post('/getfullcoursebyid',authMiddleware.checkToken(constant.timeExpire),courseMiddleware.checkPayCreateAdmin,courseController.getFullCourseData)
 
+router.post('/getallcourse',courseController.getAllCourse)
+
+router.post('/getallcourseadmin',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.addminRole),courseController.getAllCourseAdmin)
+
+
 module.exports = router
 

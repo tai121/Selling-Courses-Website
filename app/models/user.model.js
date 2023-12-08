@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-
+const mongoose = require('mongoose')
 const userSchema = new Schema({
     username: {
         type: String,
@@ -52,7 +52,16 @@ const userSchema = new Schema({
   isActive: {
     type: Boolean,
     require: true
-  }
+  },
+  payments:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Payment',
+}],
+    reviews:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Review',
+    }]
+  
 },
 {timestamps: true}
 )

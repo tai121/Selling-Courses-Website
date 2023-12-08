@@ -39,6 +39,10 @@ app.use('/api/payment',paymentRoute)
 const reviewRoute = require('./app/routes/review.route')
 app.use('/api/review',reviewRoute)
 
+const imageRoute = require('./app/routes/image.route')
+app.use('/api/image',imageRoute)
+
+
 app.use((req, res, next)=>{
     next(createError(404, 'Not Found'));
 })

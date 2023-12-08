@@ -3,6 +3,7 @@ const createError = require('http-errors')
 const bcrypt = require('bcrypt')
 const {timeExpire} = require('../config/constant.config')
 const Lesson = require("../models/lesson.model")
+const Chapter = require("../models/chapter.model")
 
 module.exports = {
     create : async (req,res,next) =>{
@@ -11,6 +12,11 @@ module.exports = {
             if(lesson===null)
                 throw createError(400,'create fail')
             await lesson.save()
+            const updatedChapter = await Chapter.findByIdAndUpdate(
+                req.body.chapter_id,
+                { $push: { lessons: lesson._id } },
+                { new: true }
+            );
             return res.status(200).json({
                 'message': 'oke',
                 'newToken': res.locals.newToken

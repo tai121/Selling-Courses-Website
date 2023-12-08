@@ -5,14 +5,14 @@ const authMiddleware = require('../middlewares/auth.middleware')
 const constant = require('../config/constant.config');
 const courseMiddleware = require('../middlewares/course.middleware');
 
-router.post('/newchapter',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.instructorRole),courseMiddleware.checkUserHaveCourse,chapterController.createChapter)
+router.post('/newchapter',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.addminRole),chapterController.createChapter)
 
-router.post('/changechapter',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.instructorRole),courseMiddleware.checkUserHaveCourse,chapterController.updateChapter)
+router.post('/changechapter',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.addminRole),chapterController.updateChapter)
 
 router.post('/getbycourse',chapterController.getAllChapterByCourse)
 
 router.post('/deletebyid',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.instructorRole),courseMiddleware.checkUserHaveCourse,chapterController.deleteChapterById)
 
-router.post('/getChapterWithLesson',authMiddleware.checkToken(constant.timeExpire),courseMiddleware.checkPayCreateAdmin)
+router.post('/getChapterWithLesson',authMiddleware.checkToken(constant.timeExpire),courseMiddleware.checkPayCreateAdmin,chapterController.getChapterWithLesson)
 
 module.exports = router

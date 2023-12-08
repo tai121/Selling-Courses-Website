@@ -25,7 +25,20 @@ const courseSchema = new Schema({
     isDelete: {
         type: Boolean,
         require: true,
-    }
+    },
+    chapters: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Chapter',
+    }],
+    reviews: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Review',
+    }],
+    payments:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Payment',
+    }]
+
   },
   {timestamps: true}
 )

@@ -3,12 +3,17 @@ const createError = require('http-errors')
 const bcrypt = require('bcrypt')
 const {timeExpire} = require('../config/constant.config')
 const Enrollment = require("../models/enrollment.model")
-
+const Course = require("../models/course.model")
 module.exports = {
     create: async (req, res, next) => {
         try {
             const enrollment = new Enrollment(req.body.enrollment)
             await enrollment.save()
+            await Course.findByIdAndUpdate(
+                req.body.course_id,
+                { $push: { enrollments: enrollment._id } },
+                { new: true }
+            );
             return res.status(200).json({
                'message': 'oke',
                 'newToken': res.locals.newToken

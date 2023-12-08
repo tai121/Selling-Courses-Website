@@ -19,7 +19,11 @@ const chapterSchema = new Schema({
       type: Boolean,
       required: true,
       default: false,
-    }
+    },
+    lessons: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Lesson',
+  }],
 },
 {timestamps: true}
 )

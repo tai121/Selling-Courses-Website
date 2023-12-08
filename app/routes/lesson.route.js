@@ -5,7 +5,7 @@ const authMiddleware = require('../middlewares/auth.middleware')
 const constant = require('../config/constant.config');
 const courseMiddleware = require('../middlewares/course.middleware')
 
-router.post('/newlesson',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.instructorRole),courseMiddleware.checkUserHaveCourse,lessonController.create)
+router.post('/newlesson',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.addminRole),lessonController.create)
 
 router.post('/changelesson',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.instructorRole),courseMiddleware.checkUserHaveCourse,lessonController.change)
 

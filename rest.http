@@ -7,6 +7,18 @@ Content-Type: application/json
     "password": "password"
 }
 
+
+###upload image
+POST http://localhost:3000/api/image/cloudinary-upload
+Content-Type: multipart/form-data
+
+{
+    "file": "file"
+}
+
+
+
+
 ### signup
 POST http://localhost:3000/api/auth/signup
 Content-Type: application/json
@@ -123,8 +135,31 @@ POST http://localhost:3000/api/course/getcoursebyid
 Content-Type: application/json
 
 {
-    "courseId" : "65558956a306537ee1dca512"
+    "courseId" : "6571433bdf10077c81fd2760"
 }
+
+
+
+### get all course
+
+POST http://localhost:3000/api/course/getallcourse
+Content-Type: application/json
+
+{
+}
+
+
+### get all course admin
+POST http://localhost:3000/api/course/getallcourseadmin
+Content-Type: application/json
+
+{
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDIwMDE2NjQsImV4cCI6MTcwMjA2MTY2NH0.EW0JuvHXDhGOMDqtT3wC_x7opCs9dFs6NfWW2iJnPN0"
+}
+
+
+
+
 
 
 
@@ -198,10 +233,9 @@ POST http://localhost:3000/api/chapter/newchapter
 Content-Type: application/json
 
 {
-    "email": "emil@email.com",
-  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY1MjQxMiwiZXhwIjoxNzAxNjU4NDEyfQ.RUx_mixAR742U0jsQirsLiPgHzBtEFsDh-oS0SNoUGo",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDIwMDA4MzMsImV4cCI6MTcwMjA2MDgzM30.CHyaTtbLdrFiwVoEO_pXRdbJq9r9-PCsIgU4vd1-HDw",
   "title": "chapter1",
-  "course_id":"656d1d805813d78553b4593c",
+  "course_id":"6571433bdf10077c81fd2760",
   "order": 1
 }
 
@@ -227,8 +261,8 @@ POST http://localhost:3000/api/chapter/getChapterWithLesson
 Content-Type: application/json
 
 {
-  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDE5NTY4NDIsImV4cCI6MTcwMjAxNjg0Mn0.wWk7B3JcpmYgmqDxIwtSK-EGNHnw7x_ZmgDWZMRs4YE",
-  "course_id": "656d1d805813d78553b4593c"
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDE5OTg2OTcsImV4cCI6MTcwMjA1ODY5N30.gb9wl222zK96n6PdGm8UFuzLlCrK_QOWIhCOyTOA034",
+  "course_id": "6571433bdf10077c81fd2760"
 }
 
 
@@ -260,12 +294,11 @@ Content-Type: application/json
 
 {
     "email": "emil@email.com",
-  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY1ODU5MiwiZXhwIjoxNzAxNzE4NTkyfQ.4cCJ-R4rPvRHKE215aeNklkU6KE1emXH4YWm_FK3fiI",
-    "course_id" : "656d1d805813d78553b4593c",
-    "chapter_id" : "656d2953f50b344892f01c58",
-    "title": "lesson1",
-    "order": 1,
-    "link": "lesson1"
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDE5OTg2MDcsImV4cCI6MTcwMjA1ODYwN30.CQZ5INklhrU1ceEAgPH6_v46T1ybhPWZShB_9UZuPFk",
+    "chapter_id" : "657278d3e4c826285855fbb6",
+    "title": "lesson2",
+    "order": 2,
+    "link": "lesson2"
 }
 
 
@@ -321,8 +354,50 @@ POST http://localhost:3000/api/payment/create
 Content-Type: application/json
 
 {
-     "email": "emcdddil@email.com",
-  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTZkMjA5NjU4NWUwNmU1MGZhNmM3ODgiLCJyb2xlcyI6IlVTRVIiLCJ1c2VybmFtZSI6InRkaWRjZGRjZGRkIiwicHJvZmlsZSI6InsgbmFtZTogJ3RhZGQzJyB9IiwiZW1haWwiOiJlbWNkZGRpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDE2NjA1NDksImV4cCI6MTcwMTcyMDU0OX0.1YW5wyOeUlVvJoI26MsyZuacEQ-dICG6H59wY7vXPYw",
-  "course_id": "656d1bbd12ffd4cc561e9a6b"
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDIwMDM1NjksImV4cCI6MTcwMjA2MzU2OX0.fxB-zveNhywmsv9FmKpuFtse6vz1IR90_vZrwXnKNz0",
+  "course_id": "6571433bdf10077c81fd2760"
 }
 
+
+
+###delete payment
+POST http://localhost:3000/api/payment/delete
+Content-Type: application/json
+
+{
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDIwMDM1NjksImV4cCI6MTcwMjA2MzU2OX0.fxB-zveNhywmsv9FmKpuFtse6vz1IR90_vZrwXnKNz0",
+  "payment_id": "656d48fb35d72fb77697ab6e"
+}
+
+
+
+###get all payment
+POST http://localhost:3000/api/payment/read
+Content-Type: application/json
+
+{
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDIwMDM1NjksImV4cCI6MTcwMjA2MzU2OX0.fxB-zveNhywmsv9FmKpuFtse6vz1IR90_vZrwXnKNz0"
+}
+
+
+
+###read review by id
+POST http://localhost:3000/api/review/read
+Content-Type: application/json
+
+{
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDIwMDM1NjksImV4cCI6MTcwMjA2MzU2OX0.fxB-zveNhywmsv9FmKpuFtse6vz1IR90_vZrwXnKNz0",
+  "course_id": "6571433bdf10077c81fd2760"
+}
+
+
+###create review
+POST http://localhost:3000/api/review/create
+Content-Type: application/json
+
+{
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDIwMDM1NjksImV4cCI6MTcwMjA2MzU2OX0.fxB-zveNhywmsv9FmKpuFtse6vz1IR90_vZrwXnKNz0",
+  "course_id": "6571433bdf10077c81fd2760",
+  "rating": 4,
+  "review_text": "hiện em mới bắt đầu học môn Cơ sở dữ liệu ở trường, nhưng mà thầy giảng lí thuyết nhiều quá, không biết khóa SQL Sever này có giống môn CSDL trên trường không ạ, em newbie mong mọi người đừng ném đá ạ, em cảm ơn"
+}

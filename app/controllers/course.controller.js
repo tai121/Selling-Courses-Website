@@ -3,7 +3,8 @@ const createError = require('http-errors')
 const bcrypt = require('bcrypt')
 const {timeExpire} = require('../config/constant.config')
 const Course = require("../models/course.model")
-
+const Review = require("../models/review.model")
+const Topic = require("../models/topic.model")
 module.exports = {
     createCourse : async(req, res, next) => {
         try {
@@ -24,6 +25,15 @@ module.exports = {
         try{
             const courseId = req.body.courseId
             const course = await Course.findById(courseId)
+            .populate({
+                path: 'chapters',
+                model: 'Chapter',
+                populate: {
+                    path: 'lessons',
+                    model: 'Lesson',
+                    select: '-link'
+                },
+            })
             if(!course)
                 throw createError(400,'something went wrong')
             return res.status(200).json({
@@ -149,6 +159,14 @@ module.exports = {
         try{
             const courseId = req.body.courseId
             const course = await Course.findById(courseId)
+            .populate({
+                path: 'chapters',
+                model: 'Chapter',
+                populate: {
+                    path: 'lessons',
+                    model: 'Lesson',
+                },
+            })
             if(!course)
                 throw createError(400,'something went wrong')
             return res.status(200).json({
@@ -161,5 +179,72 @@ module.exports = {
             console.log(error.message)
             next(error)
         }
-    }
+    },
+    getAllCourse: async (req, res,next) =>{
+        try{
+            const courseId = req.body.courseId
+            const course = await Course.find({})
+            .populate({
+                path: 'chapters',
+                model: 'Chapter',
+                populate: {
+                    path: 'lessons',
+                    model: 'Lesson',
+                    select: '-link',
+                },
+            })
+            .populate({
+                path: 'reviews',
+                model: 'Review'
+            })
+            if(!course)
+                throw createError(400,'something went wrong')
+            return res.status(200).json({
+                'message':'oke',
+                'course_data': course,
+                'newToken': res.locals.newToken,
+            })
+
+        } catch (error) {
+            console.log(error.message)
+            next(error)
+        }
+    },
+    getAllCourseAdmin: async (req, res,next) =>{
+        try{
+            const courseId = req.body.courseId
+            const course = await Course.find({})
+            .populate({
+                path: 'chapters',
+                model: 'Chapter',
+                populate: {
+                    path: 'lessons',
+                    model: 'Lesson',
+                },
+            })
+            .populate({
+                path: 'reviews',
+                model: 'Review',
+                populate:{
+                    path: "topic_id",
+                    model: "Topic",
+                }
+            })
+            .populate({
+                path: "payments",
+                model: "Payment"
+            })
+            if(!course)
+                throw createError(400,'something went wrong')
+            return res.status(200).json({
+                'message':'oke',
+                'course_data': course,
+                'newToken': res.locals.newToken,
+            })
+
+        } catch (error) {
+            console.log(error.message)
+            next(error)
+        }
+    },
 }
