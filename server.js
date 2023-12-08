@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const createError = require('http-errors')
-
+const cors = require('cors');
 require('./app/config/database.config')()
 require('dotenv').config()
 const app = express()
@@ -57,6 +57,11 @@ app.use((err, req, res, next)=>{
     })
 })
 
-app.listen(process.env.PORT || 3000, () =>{
-    console.log('Server is running')
-})
+// app.listen(process.env.PORT || 3000, () =>{
+//     console.log('Server is running')
+// })
+
+app.use(cors({
+    credentials: true,
+    origin: ['http://localhost:3000']
+  }));
