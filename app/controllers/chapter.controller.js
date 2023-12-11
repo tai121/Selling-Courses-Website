@@ -61,6 +61,7 @@ module.exports = {
     deleteChapterById : async(req,res, next)=>{
         try{
             await Chapter.updateOne({_id:req.body.chapter_id},{isDelete:true})
+            next()
         }catch (error) {
             console.log(error.message)
             next(error)
@@ -70,6 +71,7 @@ module.exports = {
         try{
             const chapters = await Chapter.find({course_id: req.body.course_id,isDelete:false})
             .populate({
+                match: { isDelete: false },
                 path: 'lessons',
                 model: 'Lesson',
             })

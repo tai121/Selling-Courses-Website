@@ -45,9 +45,10 @@ module.exports = {
     delete: async(req,res,next) => {
         try{
             await Lesson.updateOne({_id:req.body.lesson_id},{isDelete: false})
-            return res.status(200).json({
-                'message' : 'oke'
-            })
+            // return res.status(200).json({
+            //     'message' : 'oke'
+            // })
+            next()
         }catch(error){
             console.log(error.message)
             next(error)

@@ -5,7 +5,7 @@ const createError = require('http-errors')
 const bcrypt = require('bcrypt')
 const {timeExpire} = require('../config/constant.config')
 const userMiddleware = require('../middlewares/user.middleware')
-
+const sendMail = require('../service/mail.service')
 module.exports = {
     login : async(req, res, next) => {
         try {
@@ -133,6 +133,32 @@ module.exports = {
             //find user, change password and save to 
             // userMiddleware.changeUser({email: oldEmail},{email: newEmail})
             await User.updateOne({'email': oldEmail},{'password':newPassword})
+            return res.status(200).json({
+                'message': 'oke',
+                'newToken': res.locals.newToken
+            })
+        } catch (error) {
+            console.log(error.message)
+            next(error)
+        }
+    },
+    sendEmail: async (req, res, next) =>{
+        try{
+            // let roleString = user.roles.toString()
+            // let profile = user.profile.toString()
+            // let token = jwt.sign({
+            //     _id: user._id,
+            //     roles: roleString,
+            //     username: user.username,
+            //     profile: profile,
+            //     name: user.name,
+            //     email: user.email
+            // },
+            // process.env.APP_SECRET,{
+            //     expiresIn: timeExpire
+            // })
+            const t = sendMail("phamductaidtsomuch@gmail.com","test","#")
+            console.log(t)
             return res.status(200).json({
                 'message': 'oke',
                 'newToken': res.locals.newToken

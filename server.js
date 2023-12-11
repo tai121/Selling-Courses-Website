@@ -9,7 +9,10 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-
+app.use(cors({
+    credentials: true,
+    origin: ['http://localhost:4200']
+  }));
 //auth route
 const authRouter = require('./app/routes/auth.route')
 app.use('/api/auth',authRouter)
@@ -57,11 +60,11 @@ app.use((err, req, res, next)=>{
     })
 })
 
-// app.listen(process.env.PORT || 3000, () =>{
-//     console.log('Server is running')
-// })
 
-app.use(cors({
-    credentials: true,
-    origin: ['http://localhost:3000']
-  }));
+
+
+
+
+app.listen(process.env.PORT || 3000, () =>{
+    console.log('Server is running')
+})  

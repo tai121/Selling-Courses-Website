@@ -73,9 +73,10 @@ module.exports = {
     deleteCourse: async(req,res,next) => {
         try{
             await Course.updateOne({_id:req.body.courseId},{isDelete: true})
-            return res.status(200).json({
-                'message' : 'oke'
-            })
+            // return res.status(200).json({
+            //     'message' : 'oke'
+            // })
+            next()
         }catch(error){
             console.log(error.message)
             next(error)
@@ -183,7 +184,7 @@ module.exports = {
     getAllCourse: async (req, res,next) =>{
         try{
             const courseId = req.body.courseId
-            const course = await Course.find({})
+            const course = await Course.find({isDelete:false})
             .populate({
                 path: 'chapters',
                 model: 'Chapter',
@@ -213,11 +214,13 @@ module.exports = {
     getAllCourseAdmin: async (req, res,next) =>{
         try{
             const courseId = req.body.courseId
-            const course = await Course.find({})
+            const course = await Course.find({isDelete:false})
             .populate({
                 path: 'chapters',
                 model: 'Chapter',
+                match: { isDelete: false },
                 populate: {
+                    match: { isDelete: false },
                     path: 'lessons',
                     model: 'Lesson',
                 },

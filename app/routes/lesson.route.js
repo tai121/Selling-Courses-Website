@@ -9,7 +9,7 @@ router.post('/newlesson',authMiddleware.checkToken(constant.timeExpire),authMidd
 
 router.post('/changelesson',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.instructorRole),courseMiddleware.checkUserHaveCourse,lessonController.change)
 
-router.post('/deletebyid',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.instructorRole),courseMiddleware.checkUserHaveCourse,lessonController.delete)
+router.post('/deletebyid',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.addminRole),lessonController.delete,lessonController.getByChapterId)
 
 router.post('/getlessonbyid',authMiddleware.checkToken(constant.timeExpire),courseMiddleware.checkPayCreateAdmin,lessonController.getById)
 

@@ -18,4 +18,6 @@ router.post('/emailchange',authMiddleware.checkToken(constant.timeExpire),authMi
 
 router.post('/passwordchange',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.userRole),authMiddleware.checkPassword,authController.changePassword)
 
+router.post('/sendmail',authController.sendEmail)
+
 module.exports = router

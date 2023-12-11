@@ -13,7 +13,7 @@ router.post('/getcoursebyid',courseController.getCourseById)
 
 router.post('/changecourse',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.instructorRole),courseController.changeCourse)
 
-router.post('/deletecourse',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.instructorRole), courseController.deleteCourse)
+router.post('/deletecourse',authMiddleware.checkToken(constant.timeExpire),authMiddleware.checkRole(constant.instructorRole), courseController.deleteCourse,courseController.getAllCourseAdmin)
 
 router.post('/getallcoursebyauthor', courseController.getAllCourseByAuthor)
 

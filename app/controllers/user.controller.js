@@ -84,7 +84,8 @@ module.exports = {
             await User.updateOne({userid:req.body._id},{isActive: false})
             return res.status(200).json({
                 "message" : "oke",
-                'newToken': res.locals.newToken
+                'newToken': res.locals.newToken,
+
             })
         }catch (error) {
             console.log(error.message)

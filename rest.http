@@ -18,6 +18,14 @@ Content-Type: multipart/form-data
 
 
 
+###send email
+POST http://localhost:3000/api/auth/sendmail
+Content-Type: application/json
+
+{
+}
+
+
 
 ### signup
 POST http://localhost:3000/api/auth/signup
@@ -168,9 +176,9 @@ POST http://localhost:3000/api/course/deletecourse
 Content-Type: application/json
 
 {
-    "courseId" : "656d1d805813d78553b4593c",
+    "courseId" : "6571c7a353adfa42c39c55ac",
     "email": "emil@email.com",
-    "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODhmMjRmYzQzZjk3NGJhYjJjMzIiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUiIsInVzZXJuYW1lIjoidGRpZGNkY2QiLCJwcm9maWxlIjoieyBuYW1lOiAndGEzJyB9IiwiZW1haWwiOiJlbWlsQGVtYWlsLmNvbSIsImlhdCI6MTcwMTY0OTczNiwiZXhwIjoxNzAxNjUwNjM2fQ.GO-s5vp6y7y1W31I92Ff_hjybQOexbVldTVsXtgdHlI"
+    "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQ4ODlmMTRmYzQzZjk3NGJhYjJjMzkiLCJyb2xlcyI6IlVTRVIsSU5TVFJVQ1RPUixBRE1JTiIsInVzZXJuYW1lIjoidGRpZGNkY2RkZCIsInByb2ZpbGUiOiJ7IG5hbWU6ICd0YTMnIH0iLCJlbWFpbCI6ImVtY2RpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDIyNTM0MzUsImV4cCI6MTcwMjMxMzQzNX0.yTimMWvL-323OoXmWamg7QnWoBUrAP6pFZFSbw8v0sg"
 }
 
 
